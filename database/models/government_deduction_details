@@ -1,0 +1,41 @@
+
+      sss_id: {
+        type: DataTypes.STRING,
+        allowNull: true,
+      },
+      sss_contribution: {
+        type: DataTypes.FLOAT(8, 2),
+        allowNull: true,
+      },
+      sss_er_share: {
+        type: DataTypes.FLOAT(8, 2),
+        allowNull: true,
+      },
+      sss_ec_share: {
+        type: DataTypes.FLOAT(8, 2),
+        allowNull: true,
+      },
+      phil_health_id: {
+        type: DataTypes.STRING,
+        allowNull: true,
+      },
+      phil_health_contribution: {
+        type: DataTypes.FLOAT(8, 2),
+        allowNull: true,
+      },
+      phil_health_er_share: {
+        type: DataTypes.FLOAT(8, 2),
+        allowNull: true,
+      },
+      pag_ibig_id: {
+        type: DataTypes.STRING,
+        allowNull: true,
+      },
+      pag_ibig_contribution: {
+        type: DataTypes.FLOAT(8, 2),
+        allowNull: true,
+      },
+      pag_ibig_er_share: {
+        type: DataTypes.FLOAT(8, 2),
+        allowNull: true,
+      },

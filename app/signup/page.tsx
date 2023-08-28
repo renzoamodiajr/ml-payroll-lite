@@ -36,7 +36,7 @@ const SignUp: NextPage = (props) => {
 
   return (
     <div className="mx-50 my-[100px]">
-      <div className="w-[650px] m-auto">
+      <div className="w-[850px] m-auto">
         <Card title="Create Company Account" className="text-danger">
           <form onSubmit={handleSubmit(onSubmit)}>
             <div className="card flex justify-content-center"></div>
@@ -44,7 +44,7 @@ const SignUp: NextPage = (props) => {
               <div className="columns-2">
                 <div className="mb-2 p-inputgroup">
                   <span className="p-inputgroup-addon">
-                    <i className="pi pi-user"></i>
+                    <i className="pi pi-building"></i>
                   </span>
                   <InputText
                     placeholder="Company Name"
@@ -58,7 +58,7 @@ const SignUp: NextPage = (props) => {
                 </div>
                 <div className="mb-2 p-inputgroup">
                   <span className="p-inputgroup-addon">
-                    <i className="pi pi-user"></i>
+                    <i className="pi pi-envelope"></i>
                   </span>
                   <InputText
                     placeholder="Email Address"
@@ -74,7 +74,7 @@ const SignUp: NextPage = (props) => {
               <div className="columns-2">
                 <div className="mb-2 p-inputgroup">
                   <span className="p-inputgroup-addon">
-                    <i className="pi pi-user"></i>
+                    <i className="pi pi-calendar-plus"></i>
                   </span>
                   <InputText
                     placeholder="Bill Date"
@@ -88,7 +88,7 @@ const SignUp: NextPage = (props) => {
                 </div>
                 <div className="mb-2 p-inputgroup">
                   <span className="p-inputgroup-addon">
-                    <i className="pi pi-user"></i>
+                    <i className="pi pi-calendar"></i>
                   </span>
                   <InputText
                     placeholder="Due Date"
@@ -104,34 +104,34 @@ const SignUp: NextPage = (props) => {
 
               <div className="first-cycle-container mt-3">
                 <label className="block font-bold">First Cycle</label>
-                <div className="mb-2 p-inputgroup">
-                  <span className="p-inputgroup-addon">
-                    <i className="pi pi-user"></i>
-                  </span>
-                  <Controller
-                    name="first_cycle_month"
-                    control={control}
-                    rules={{ required: "First Cycle Month is required." }}
-                    render={({ field, fieldState }) => (
-                      <Dropdown
-                        id={field.name}
-                        value={field.value}
-                        optionLabel="name"
-                        placeholder="Select a Pay Cycle Month"
-                        options={[{ name: "PREV" }, { name: "CURRENT" }]}
-                        focusInputRef={field.ref}
-                        onChange={(e) => field.onChange(e.value)}
-                        className={classNames({
-                          "p-invalid": fieldState.error,
-                        })}
-                      />
-                    )}
-                  />
-                </div>
-                <div className="columns-3">
+                <div className="columns-2">
                   <div className="mb-2 p-inputgroup">
                     <span className="p-inputgroup-addon">
-                      <i className="pi pi-user"></i>
+                      <i className="pi pi-calendar"></i>
+                    </span>
+                    <Controller
+                      name="first_cycle_month"
+                      control={control}
+                      rules={{ required: "First Cycle Month is required." }}
+                      render={({ field, fieldState }) => (
+                        <Dropdown
+                          id={field.name}
+                          value={field.value}
+                          optionLabel="name"
+                          placeholder="Select a Pay Cycle Month"
+                          options={[{ name: "PREV" }, { name: "CURRENT" }]}
+                          focusInputRef={field.ref}
+                          onChange={(e) => field.onChange(e.value)}
+                          className={classNames({
+                            "p-invalid": fieldState.error,
+                          })}
+                        />
+                      )}
+                    />
+                  </div>
+                  <div className="mb-2 p-inputgroup">
+                    <span className="p-inputgroup-addon">
+                      <i className="pi pi-calendar"></i>
                     </span>
                     <Controller
                       name="first_cycle_date"
@@ -142,6 +142,11 @@ const SignUp: NextPage = (props) => {
                       }}
                       render={({ field, fieldState }) => (
                         <InputNumber
+                          showButtons
+                          decrementButtonClassName="p-button-secondary"
+                          incrementButtonClassName="p-button-secondary"
+                          min={1}
+                          max={12}
                           id={field.name}
                           ref={field.ref}
                           value={field.value}
@@ -155,9 +160,11 @@ const SignUp: NextPage = (props) => {
                       )}
                     />
                   </div>
+                </div>
+                <div className="columns-2">
                   <div className="mb-2 p-inputgroup">
                     <span className="p-inputgroup-addon">
-                      <i className="pi pi-user"></i>
+                      <i className="pi pi-calendar-minus"></i>
                     </span>
                     <Controller
                       name="first_cycle_from"
@@ -168,6 +175,11 @@ const SignUp: NextPage = (props) => {
                       }}
                       render={({ field, fieldState }) => (
                         <InputNumber
+                          showButtons
+                          decrementButtonClassName="p-button-secondary"
+                          incrementButtonClassName="p-button-secondary"
+                          min={1}
+                          max={31}
                           id={field.name}
                           ref={field.ref}
                           value={field.value}
@@ -183,7 +195,7 @@ const SignUp: NextPage = (props) => {
                   </div>
                   <div className="mb-2 p-inputgroup">
                     <span className="p-inputgroup-addon">
-                      <i className="pi pi-user"></i>
+                      <i className="pi pi-calendar-plus"></i>
                     </span>
                     <Controller
                       name="first_cycle_to"
@@ -194,6 +206,11 @@ const SignUp: NextPage = (props) => {
                       }}
                       render={({ field, fieldState }) => (
                         <InputNumber
+                          showButtons
+                          decrementButtonClassName="p-button-secondary"
+                          incrementButtonClassName="p-button-secondary"
+                          min={1}
+                          max={31}
                           id={field.name}
                           ref={field.ref}
                           value={field.value}
@@ -212,41 +229,49 @@ const SignUp: NextPage = (props) => {
 
               <div className="second-cycle-container mt-3">
                 <label className="block font-bold">Second Cycle</label>
-                <div className="mb-2 p-inputgroup">
-                  <span className="p-inputgroup-addon">
-                    <i className="pi pi-user"></i>
-                  </span>
-                  <Controller
-                    name="second_cycle_month"
-                    control={control}
-                    rules={{ required: "Second Cycle Month is required." }}
-                    render={({ field, fieldState }) => (
-                      <Dropdown
-                        id={field.name}
-                        value={field.value}
-                        optionLabel="name"
-                        placeholder="Select a Pay Cycle Month"
-                        options={[{ name: "PREV" }, { name: "CURRENT" }]}
-                        focusInputRef={field.ref}
-                        onChange={(e) => field.onChange(e.value)}
-                        className={classNames({
-                          "p-invalid": fieldState.error,
-                        })}
-                      />
-                    )}
-                  />
-                </div>
-                <div className="columns-3">
+                <div className="columns-2">
                   <div className="mb-2 p-inputgroup">
                     <span className="p-inputgroup-addon">
-                      <i className="pi pi-user"></i>
+                      <i className="pi pi-calendar"></i>
+                    </span>
+                    <Controller
+                      name="second_cycle_month"
+                      control={control}
+                      rules={{ required: "Second Cycle Month is required." }}
+                      render={({ field, fieldState }) => (
+                        <Dropdown
+                          id={field.name}
+                          value={field.value}
+                          optionLabel="name"
+                          placeholder="Select a Pay Cycle Month"
+                          options={[{ name: "PREV" }, { name: "CURRENT" }]}
+                          focusInputRef={field.ref}
+                          onChange={(e) => field.onChange(e.value)}
+                          className={classNames({
+                            "p-invalid": fieldState.error,
+                          })}
+                        />
+                      )}
+                    />
+                  </div>
+                  <div className="mb-2 p-inputgroup">
+                    <span className="p-inputgroup-addon">
+                      <i className="pi pi-calendar"></i>
                     </span>
                     <Controller
                       name="second_cycle_date"
                       control={control}
-                      rules={{ required: "Second Cycle Date is required." }}
+                      rules={{
+                        required: "Second Cycle Date is required.",
+                        min: 1,
+                      }}
                       render={({ field, fieldState }) => (
                         <InputNumber
+                          showButtons
+                          decrementButtonClassName="p-button-secondary"
+                          incrementButtonClassName="p-button-secondary"
+                          min={1}
+                          max={12}
                           id={field.name}
                           ref={field.ref}
                           value={field.value}
@@ -260,9 +285,11 @@ const SignUp: NextPage = (props) => {
                       )}
                     />
                   </div>
+                </div>
+                <div className="columns-2">
                   <div className="mb-2 p-inputgroup">
                     <span className="p-inputgroup-addon">
-                      <i className="pi pi-user"></i>
+                      <i className="pi pi-calendar-minus"></i>
                     </span>
                     <Controller
                       name="second_cycle_from"
@@ -270,6 +297,11 @@ const SignUp: NextPage = (props) => {
                       rules={{ required: "Second Cycle From is required." }}
                       render={({ field, fieldState }) => (
                         <InputNumber
+                          showButtons
+                          decrementButtonClassName="p-button-secondary"
+                          incrementButtonClassName="p-button-secondary"
+                          min={1}
+                          max={31}
                           id={field.name}
                           ref={field.ref}
                           value={field.value}
@@ -285,14 +317,22 @@ const SignUp: NextPage = (props) => {
                   </div>
                   <div className="mb-2 p-inputgroup">
                     <span className="p-inputgroup-addon">
-                      <i className="pi pi-user"></i>
+                      <i className="pi pi-calendar-plus"></i>
                     </span>
                     <Controller
                       name="second_cycle_to"
                       control={control}
-                      rules={{ required: "Second Cycle To is required." }}
+                      rules={{
+                        required: "Second Cycle To is required.",
+                        min: 1,
+                      }}
                       render={({ field, fieldState }) => (
                         <InputNumber
+                          showButtons
+                          decrementButtonClassName="p-button-secondary"
+                          incrementButtonClassName="p-button-secondary"
+                          min={1}
+                          max={31}
                           id={field.name}
                           ref={field.ref}
                           value={field.value}
